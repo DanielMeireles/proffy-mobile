@@ -1,12 +1,16 @@
 import React from 'react';
-import { View, ImageBackground, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { RectButton } from 'react-native-gesture-handler';
+import { View } from 'react-native';
+
+import PageHeader from '../../components/PageHeader';
 
 import styles from './styles';
 
 function Favorites() {
-  return <View style={styles.container}></View>
+  return (
+    <View style={styles.container}>
+      <PageHeader title="Meus Proffys favoritos"/>
+    </View>
+  );
 }
 
 export default Favorites;
