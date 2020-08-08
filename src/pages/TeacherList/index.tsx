@@ -35,16 +35,17 @@ function TeacherList() {
   const [week_day, setWeekDay] = useState('');
   const [time, setTime] = useState('');
 
-  useEffect(() => {
+  function loadFavorites() {
     AsyncStorage.getItem('favorites').then(response => {
       if(response){
         const favoritedTeachers = JSON.parse(response);
-        const favoritedTeachersId = favoritedTeachers.map((teacher: Teacher) => {
-          return teacher.class_id;
-        });
-        setFavorites(favoritedTeachersId);
+        setFavorites(favoritedTeachers);
       }
     });
+  }
+
+  useEffect(() => {
+    loadFavorites();
   }, []);
 
   function handleToggleFiltersVisible() {
